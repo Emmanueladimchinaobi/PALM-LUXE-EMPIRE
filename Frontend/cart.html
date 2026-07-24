@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./src/output.css">
+    <!-- Font Awesome Free CSS -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+    <title>Document</title>
+</head>
+<body class=" bg-black h-auto">
+   <nav class="bg-black text-white shadow-md fixed z-50 w-full top-0 h-auto">
+  <div class="max-w-7xl mx-auto px-6  ">
+    
+
+   
+    <div class="flex items-center justify-between p-6 ">
+       
+           <div class="flex">
+
+    <h1 class=" font-extrabold  ">Palm Luxe Empire </h1>
+
+    <a href="./cart.html" class="relative">
+
+        🛒
+
+        <span id="cart-count"
+        class="absolute -top-2 -right-3 bg-red-600 text-white text-xs rounded-full w-5 h-5 flex items-center justify-center">
+
+        0
+
+        </span>
+
+    </a>
+
+  </div>
+    
+
+    <!-- Desktop Menu -->
+        <div class="hidden  lg:flex  space-x-8 items-center">
+         
+          <a  href="./index.html" class="">Home</a>
+        
+       
+              <a href="./jersey.html">shop</a>
+        
+             <a href="./services.html" class="">
+              contact
+            </a>
+        
+        </div>
+     
+
+        <!-- Hamburger -->
+    <button id="menuBtn" class="lg:hidden absolute right-6 text-3xl mt-2">
+      ☰
+    </button>
+  </div>
+
+  </div>
+
+  <!-- Full Screen Mobile Menu -->
+  <div
+    id="mobileMenu"
+    class="fixed inset-0 bg-black text-white z-50 hidden px-4 py-4 flex-col space-y-8 text-xl lg:hidden "
+  >
+    <!-- Close Button -->
+    <button id="closeBtn" class="absolute  right-6 text-3xl mt-2">
+      ✕
+    </button>
+
+<ul class="list-none"><li class="list-none">
+          <a href="./index.html" class="block px-6 py-4  border-b mt-10  list-none">
+            Home
+          </a>
+
+
+<a href="./jersey.html" class="block px-6 py-4  border-b   list-none">
+            Shop
+          </a>
+          
+          <a href="./index.html" class="block px-6 py-4  border-b   list-none">
+            contact
+          </a>
+    </div> 
+    
+       
+
+   
+
+         
+</nav>
+
+
+
+<div class="max-w-7xl mx-auto flex justify-between items-center px-6 py-4">
+
+            <h1 class="text-2xl font-bold">
+                My Store
+            </h1>
+
+            <a href="index.html"
+               class="bg-black text-white px-4 py-2 rounded-lg hover:bg-gray-800">
+                Continue Shopping
+            </a>
+
+        </div>
+
+    
+
+    <!-- Shopping Cart -->
+    <section class="max-w-6xl mx-auto px-6 py-10 pt-30">
+
+        <h2 class="text-4xl font-bold mb-8">
+            Shopping Cart
+        </h2>
+
+        <!-- Cart Items -->
+        <div id="cart-items" class="space-y-6">
+
+            <!-- Items will be added here by cart.js -->
+
+        </div>
+
+        <!-- Total -->
+        <div class="bg-white rounded-xl shadow-lg p-6 mt-8 flex justify-between items-center">
+
+            <h2 class="text-2xl font-bold">
+                Total
+            </h2>
+
+            <h2 id="total" class="text-2xl font-bold">
+                ₦0
+            </h2>
+
+        </div>
+
+        <!-- Checkout Button -->
+        <div class="mt-8 text-right">
+
+            <button
+                class="bg-green-600 hover:bg-green-700 text-white px-8 py-3 rounded-lg text-lg">
+               <a href="./checkout.html">Proceed to Checkout</a> 
+            </button>
+
+        </div>
+
+    </section>
+
+
+<!-------footer-->
+<footer class="w-full bg-black text-white h-auto">
+  <div class="max-w-7xl mx-auto px-6">
+<div class="flex flex-col md:flex-row p-6 space-y-6">
+<div class="flex-1 space-y-4">
+<div>
+  <h1 class="font-extrabold">Welcome to Palm Luxe Empire 🌷</h1>
+  <p>Where luxury meets self-care ✨</p>
+</div>
+</div>
+ 
+<div class="flex-1 space-y-4">
+<div><h1 class="font-extrabold "><a href="./jersey.html"><p>shop</p></a></h1>
+<p>Do you have any suggestions?</p>
+<p><a href="mailto:Kanumiracle14@gmail.com">Email us <i class="fa-solid fa-envelope"></i></a></p>
+<p>Do you need assistance?</p>
+<p>  <a href="tel:+2349030735969">Give us a call <i class="fa-solid fa-phone"></i></a></p>
+
+</div>
+</div>
+<div class="flex-1 space-y-4">
+<div><h1 class="font-extrabold"> social media</h1>
+  <div class="flex gap-4">
+<a href="tel:+2349030735969"><i class="fa-solid fa-phone"></i></a>
+          <a href="mailto:Kanumiracle14@gmail.com"><i class="fa-solid fa-envelope"></i></a>
+          
+            <a href="https://www.instagram.com/pam_luxe_empire_/"><i class="fa-brands fa-instagram"></i></a>
+  <a href="https://www.tiktok.com/@realpamluxe_empire_"><i class="fa-brands fa-tiktok"></i></a>
+  <a href="https://wa.me/2349030735969?text=Hello,Welcome to Palm Luxe Empire 🌷 Where luxury meets self-care ✨
+Kindly hold on while we attend to you 💖.">
+    <i class="fa-brands fa-whatsapp"></i></a>
+  </div>
+          
+          
+    
+</div>
+</div>
+  </div>
+ 
+</div>
+  
+
+
+
+</footer>
+    
+    <script src="./cart.js"></script>
+    <script src="./cartcount.js"></script>
+    <script src="./script.js"></script>
+    
+    
+</body>
+</html>

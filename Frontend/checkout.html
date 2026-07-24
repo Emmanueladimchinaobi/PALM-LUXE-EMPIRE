@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./src/output.css">
+    <!-- Font Awesome Free CSS -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+    <title>Document</title>
+</head>
+<body class=" ">
+
+   <nav class="bg-black text-white shadow-md fixed z-50 w-full top-0 h-auto">
+  <div class="max-w-7xl mx-auto px-6  ">
+    
+
+   
+    <div class="flex items-center justify-between p-6 ">
+       
+           <div class="flex">
+
+    <h1 class=" font-extrabold  ">Palm Luxe Empire </h1>
+
+    <a href="./cart.html" class="relative">
+
+        🛒
+
+        <span id="cart-count"
+        class="absolute -top-2 -right-3 bg-red-600 text-white text-xs rounded-full w-5 h-5 flex items-center justify-center">
+
+        0
+
+        </span>
+
+    </a>
+
+  </div>
+    
+
+    <!-- Desktop Menu -->
+        <div class="hidden  lg:flex  space-x-8 items-center">
+         
+          <a  href="./index.html" class="">Home</a>
+        
+       
+              <a href="./jersey.html">shop</a>
+        
+             <a href="./services.html" class="">
+              contact
+            </a>
+        
+        </div>
+     
+
+        <!-- Hamburger -->
+    <button id="menuBtn" class="lg:hidden absolute right-6 text-3xl mt-2">
+      ☰
+    </button>
+  </div>
+
+  </div>
+
+  <!-- Full Screen Mobile Menu -->
+  <div
+    id="mobileMenu"
+    class="fixed inset-0 bg-black text-white z-50 hidden px-4 py-4 flex-col space-y-8 text-xl lg:hidden "
+  >
+    <!-- Close Button -->
+    <button id="closeBtn" class="absolute  right-6 text-3xl mt-2">
+      ✕
+    </button>
+
+<ul class="list-none"><li class="list-none">
+          <a href="./index.html" class="block px-6 py-4  border-b mt-10  list-none">
+            Home
+          </a>
+
+
+<a href="./jersey.html" class="block px-6 py-4  border-b   list-none">
+            Shop
+          </a>
+          
+          <a href="./index.html" class="block px-6 py-4  border-b   list-none">
+            contact
+          </a>
+    </div> 
+    
+       
+
+   
+
+         
+</nav>
+
+
+
+<div class="bg-white shadow-lg rounded-lg p-6 mb-8 max-w-7xl mx-auto px-6">
+
+    <h2 class="text-2xl font-bold mb-6">
+        Customer Information
+    </h2>
+
+    <div class="grid gap-4">
+
+        <input
+            id="customerName"
+            type="text"
+            placeholder="Full Name"
+            class="border rounded-lg p-3 w-full"
+        >
+
+        <input
+            id="phone"
+            type="text"
+            placeholder="Phone Number"
+            class="border rounded-lg p-3 w-full"
+        >
+
+        <textarea
+            id="address"
+            placeholder="Delivery Address"
+            class="border rounded-lg p-3 w-full"
+            rows="3"
+        ></textarea>
+        <input
+    id="email"
+    type="email"
+    placeholder="Email Address"
+    class="border rounded-lg p-3 w-full"
+>
+
+    </div>
+
+</div>
+<div class="max-w-7xl mx-auto px-6">
+<div class="bg-white shadow-lg rounded-lg p-6">
+
+    <h2 class="text-2xl font-bold mb-6">
+        Order Summary
+    </h2>
+
+    <div id="order-summary"></div>
+
+    <hr class="my-6">
+
+  <div class="mt-6">
+
+    <hr class="mb-4">
+
+    <div class="flex justify-between text-2xl font-bold">
+        <span>Total</span>
+        <span id="grand-total">₦0</span>
+    </div>
+
+</div>
+
+</div>
+</div>
+
+
+<div class="bg-gray-100 max-w-7xl mx-auto px-6 rounded-lg p-6 mt-8">
+
+    <h2 class="text-2xl font-bold mb-4">
+        Bank Transfer
+    </h2>
+
+    <p class="mb-2">
+        Please transfer the total amount to:
+    </p>
+
+    <div class="space-y-2">
+
+        <p>
+            <strong>Bank:</strong> opay
+        </p>
+
+        <p>
+            <strong>Account Name:</strong>Kanu miracle amarachi.
+        </p>
+
+        <p>
+            <strong>Account Number:</strong>
+            <span id="accountNumber">9030735969</span>
+        </p>
+
+    </div>
+
+    <button
+        id="copyAccount"
+        class="mt-4 bg-black text-white px-4 py-2 rounded-lg">
+
+        Copy Account Number
+
+    </button>
+    <button
+    id="confirmPayment"
+    class="w-full bg-green-600 text-white py-4 rounded-lg mt-6">
+
+    I Have Made Payment
+
+</button>
+<label class="block font-semibold mt-6 mb-2">
+    Transaction Reference
+</label>
+
+<input
+    id="paymentReference"
+    type="text"
+    placeholder="Enter your bank transfer reference"
+    class="w-full border rounded-lg p-3">
+
+</div>
+<div class="flex justify-center mb-6 ">
+    <button
+    id="placeOrder"
+    class="bg-black text-white px-6 py-3 rounded-lg  mt-6 hover:bg-gray-800"
+> 
+    Submit Order
+</button>
+</div>
+
+
+
+
+
+
+<!-------footer-->
+<footer class="w-full bg-black text-white h-auto">
+  <div class="max-w-7xl mx-auto px-6">
+<div class="flex flex-col md:flex-row p-6 space-y-6">
+<div class="flex-1 space-y-4">
+<div>
+  <h1 class="font-extrabold">Welcome to Palm Luxe Empire 🌷</h1>
+  <p>Where luxury meets self-care ✨</p>
+</div>
+</div>
+ 
+<div class="flex-1 space-y-4">
+<div><h1 class="font-extrabold "><a href="./jersey.html"><p>shop</p></a></h1>
+<p>Do you have any suggestions?</p>
+<p><a href="mailto:Kanumiracle14@gmail.com">Email us <i class="fa-solid fa-envelope"></i></a></p>
+<p>Do you need assistance?</p>
+<p>  <a href="tel:+2349030735969">Give us a call <i class="fa-solid fa-phone"></i></a></p>
+
+</div>
+</div>
+<div class="flex-1 space-y-4">
+<div><h1 class="font-extrabold"> social media</h1>
+  <div class="flex gap-4">
+<a href="tel:+2349030735969"><i class="fa-solid fa-phone"></i></a>
+          <a href="mailto:Kanumiracle14@gmail.com"><i class="fa-solid fa-envelope"></i></a>
+          
+            <a href="https://www.instagram.com/pam_luxe_empire_/"><i class="fa-brands fa-instagram"></i></a>
+  <a href="https://www.tiktok.com/@realpamluxe_empire_"><i class="fa-brands fa-tiktok"></i></a>
+  <a href="https://wa.me/2349030735969?text=Hello,Welcome to Palm Luxe Empire 🌷 Where luxury meets self-care ✨
+Kindly hold on while we attend to you 💖.">
+    <i class="fa-brands fa-whatsapp"></i></a>
+  </div>
+          
+          
+    
+</div>
+</div>
+  </div>
+ 
+</div>
+  
+
+
+
+</footer>
+  <script src="./script.js"></script>  
+  <script src="./checkout.js"></script>
+  <script src="./cartcount.js"></script>
+</body>
+</html>

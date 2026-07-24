@@ -1,0 +1,737 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./src/output.css">
+     <!-- Font Awesome Free CSS -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+    <title>Document</title>
+</head>
+<body class="bg-black text-white">
+  <nav class=" text-white shadow-md fixed z-50 w-full top-0 h-auto">
+  <div class="max-w-7xl mx-auto px-6  ">
+    
+
+   
+    <div class="flex items-center justify-between p-6 ">
+       
+           <div class="flex">
+
+    <h1 class=" font-extrabold  ">Palm Luxe Empire </h1>
+
+    <a href="./cart.html" class="relative">
+
+        🛒
+
+        <span id="cart-count"
+        class="absolute -top-2 -right-3 bg-red-600 text-white text-xs rounded-full w-5 h-5 flex items-center justify-center">
+
+        0
+
+        </span>
+
+    </a>
+
+  </div>
+    
+
+    <!-- Desktop Menu -->
+        <div class="hidden  lg:flex  space-x-8 items-center">
+         
+          <a  href="./index.html" class="">Home</a>
+        
+       
+              <a href="./jersey.html">shop</a>
+        
+             <a href="./services.html" class="">
+              contact
+            </a>
+        
+        </div>
+     
+
+        <!-- Hamburger -->
+    <button id="menuBtn" class="lg:hidden absolute right-6 text-3xl mt-2">
+      ☰
+    </button>
+  </div>
+
+  </div>
+
+  <!-- Full Screen Mobile Menu -->
+  <div
+    id="mobileMenu"
+    class="fixed inset-0  text-white bg-black z-50 hidden px-4 py-4 flex-col space-y-8 text-xl lg:hidden "
+  >
+    <!-- Close Button -->
+    <button id="closeBtn" class="absolute  right-6 text-3xl mt-2">
+      ✕
+    </button>
+
+<ul class="list-none"><li class="list-none">
+          <a href="./index.html" class="block px-6 py-4  border-b mt-10  list-none">
+            Home
+          </a>
+
+
+<a href="./jersey.html" class="block px-6 py-4  border-b   list-none">
+            Shop
+          </a>
+          
+          <a href="./index.html" class="block px-6 py-4  border-b   list-none">
+            contact
+          </a>
+    </div> 
+    
+       
+
+   
+
+         
+</nav>
+
+
+<section class="max-w-7xl mx-auto px-6 pt-20">
+  <h1 class=" font-extrabold flex justify-center mb-6 border-b"> our masks</h1>
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 mb-6 gap-2 space-y-10 ">
+<!------first product section-->
+
+      <div class=" product-card p-5">
+
+    <img
+    src="./img/WhatsApp Image 2026-07-19 at 08.42.32 (1).jpeg"
+    >
+
+    <h2 class="text-xl font-bold mt-4">
+        lip mask set
+    </h2>
+
+  <div class="flex gap-2"><p class="mb-4">
+       ₦5,000 
+    </p><p class="line-through">₦6,000</p></div> 
+   
+    
+
+    <button
+    class="add-cart w-full border border-white bg-black text-white py-3 rounded-lg"
+
+    data-id="lip mask set "
+    data-name="lip mask set"
+    data-price="5000"
+    data-image="img/WhatsApp Image 2026-07-19 at 08.42.32 (1).jpeg">
+
+      Add to Cart
+
+    </button>
+    <button class=" border border-white mt-5 py-3 font-extrabold rounded-lg w-full  bg-black text-white">
+   <a href="./cart.html"> place order</a></button>
+
+</div>
+
+<div class="product-card"><img src="./img/WhatsApp Image 2026-07-19 at 08.42.30 (4).jpeg">
+  <div class="p-5">
+<p class="font-extrabold">Eye mask set</p>
+<div class="flex gap-2"><p class=" mb-4">
+       ₦5,000 
+    </p><p class="line-through">₦6,000</p></div>
+
+<div class="mt-5">
+  
+  
+  <button
+    class="add-cart w-full border border-white bg-black text-white py-3 rounded-lg"
+
+    data-id="Eye mask"
+    data-name="Eye mask"
+    data-price="1000"
+    data-image="img/WhatsApp Image 2026-07-19 at 08.42.30 (4).jpeg">
+
+      Add to Cart
+
+    </button></div>
+<button class=" border border-white mt-5 py-3 font-extrabold rounded-lg w-full  bg-black text-white">
+   <a href="./cart.html"> place order</a></button>
+</div>
+</div>
+<div class="product-card">
+  <img src="./img/WhatsApp Image 2026-07-19 at 08.42.33 (3).jpeg">
+<div class="p-5">
+<p class="font-extrabold">Acne patch set</p>
+<div class="flex gap-2">
+     <p class=" mb-4">
+        ₦13,500
+    </p>
+    <p class=" mb-4 line-through">
+         ₦14,000
+    </p>
+   </div>
+
+<div class="mt-5">
+
+  <button
+    class="add-cart w-full border border-white bg-black text-white py-3 rounded-lg"
+
+    data-id="Acne patch set"
+    data-name="Acne patch set"
+    data-price="13500"
+    data-image="img/WhatsApp Image 2026-07-19 at 08.42.33 (3).jpeg">
+
+      Add to Cart
+
+    </button></div>
+
+<button class="  mt-5 py-3 font-extrabold rounded-lg w-full border border-white bg-black text-white">
+   <a href="./cart.html"> place order</a></button>
+</div></div>
+<div class=" product-card p-5">
+
+    <img
+    src="./img/WhatsApp Image 2026-07-19 at 08.42.36.jpeg">
+
+    <h2 class="text-xl font-bold mt-4">
+        Lip brush set
+    </h2>
+
+   <div class="flex gap-2">
+     <p class=" mb-4">
+        ₦3,500
+    </p>
+    <p class=" mb-4 line-through">
+         ₦4,000
+    </p>
+   </div>
+   
+
+    <button
+    class="add-cart w-full bg-black border border-white text-white py-3 rounded-lg"
+
+    data-id="Lip brush set"
+    data-name="Lip brush set"
+    data-price="3500"
+    data-image="img/WhatsApp Image 2026-07-19 at 08.42.36.jpeg">
+
+      Add to Cart
+
+    </button>
+    <button class=" border border-white mt-5 py-3 font-extrabold rounded-lg w-full  bg-black text-white">
+   <a href="./cart.html"> place order</a></button>
+
+</div>
+    </div>
+
+<!-----second product sectgion-->
+<h1 class=" font-extrabold flex justify-center mt-10 border-b">our lip care products</h1>
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 mb-6 gap-2 space-y-10 ">
+<div class=" product-card p-5">
+
+    <img
+    src="./img/WhatsApp Image 2026-07-19 at 08.42.31.jpeg"
+    >
+
+    <h2 class="text-xl font-bold mt-4">
+        shinny lip gloss set
+    </h2>
+
+   <div class="flex gap-2"><p class=" mb-4">
+        ₦4,000
+    </p><p class="line-through mb-4">
+        ₦4,500
+    </p></div>
+    
+   
+
+    <button
+    class="add-cart w-full bg-black border border-white text-white py-3 rounded-lg"
+
+    data-id="shinny lip gloss set"
+    data-name="shinny lip gloss set"
+    data-price="4000"
+    data-image="img/WhatsApp Image 2026-07-19 at 08.42.31.jpeg">
+
+      Add to Cart
+
+    </button>
+    <button class="  mt-5 py-3 font-extrabold border border-white  rounded-lg w-full  bg-black text-white">
+   <a href="./cart.html"> place order</a></button>
+
+</div>
+<div class=" product-card p-5">
+
+    <img
+    src="./img/WhatsApp Image 2026-07-19 at 08.42.33 (2).jpeg"
+    >
+
+    <h2 class="text-xl font-bold mt-4">
+        lip balm set
+    </h2>
+
+    
+    <div class="flex gap-2"><p class="mb-4">
+        ₦14,000
+    </p><p class="line-through mb-4">
+        ₦15,000
+    </p></div>
+   
+
+    <button
+    class="add-cart w-full border border-white bg-black text-white py-3 rounded-lg"
+
+    data-id=" lip balm set"
+    data-name=" lip balm set"
+    data-price="14000"
+    data-image="img/WhatsApp Image 2026-07-19 at 08.42.33 (2).jpeg">
+
+      Add to Cart
+
+    </button>
+    <button class=" border border-white mt-5 py-3 font-extrabold rounded-lg w-full  bg-black text-white">
+   <a href="./cart.html"> place order</a></button>
+
+</div>
+<div class=" product-card p-5">
+
+    <img
+    src="./img/WhatsApp Image 2026-07-19 at 08.42.34 (2).jpeg"
+    >
+
+    <h2 class="text-xl font-bold mt-4">
+        lip Gloss set
+    </h2>
+
+    <div class="flex gap-2"><p class=" mb-4">
+        ₦14,000
+    </p><p class="line-through mb-4">
+        ₦15,000
+    </p></div>
+    
+
+    <button
+    class="add-cart w-full border border-white bg-black text-white py-3 rounded-lg"
+
+    data-id="lip Gloss set"
+    data-name="lip Gloss set"
+    data-price="14000"
+    data-image="img/WhatsApp Image 2026-07-19 at 08.42.34 (2).jpeg">
+
+      Add to Cart
+
+    </button>
+    <button class=" border border-white mt-5 py-3 font-extrabold rounded-lg w-full  bg-black text-white">
+   <a href="./cart.html"> place order</a></button>
+
+</div>
+<div class=" product-card p-5">
+
+    <img
+    src="./img/WhatsApp Image 2026-07-19 at 08.42.35.jpeg"
+    >
+
+    <h2 class="text-xl font-bold mt-4">
+        lip gloss small tube set
+    </h2>
+
+    <div class="flex gap-2"><p class=" mb-4">
+        ₦14,000
+    </p><p class="line-through mb-4">
+        ₦15,000
+    </p></div>
+    
+
+    <button
+    class="add-cart w-full border border-white bg-black text-white py-3 rounded-lg"
+
+    data-id=" lip gloss small tube set"
+    data-name=" lip gloss small tube set"
+    data-price="14000"
+    data-image="img/WhatsApp Image 2026-07-19 at 08.42.35.jpeg">
+
+      Add to Cart
+
+    </button>
+    <button class="border border-white mt-5 py-3 font-extrabold rounded-lg w-full  bg-black text-white">
+   <a href="./cart.html"> place order</a></button>
+
+</div>
+<div class=" product-card p-5">
+
+    <img
+    src="./img/WhatsApp Image 2026-07-19 at 08.42.35 (4).jpeg"
+    >
+
+    <h2 class="text-xl font-bold mt-4">
+        Lip Gloss big tube set
+    </h2>
+
+    <div class="flex gap-2"><p class=" mb-4">
+        ₦24,000
+    </p><p class="line-through mb-4">
+        ₦25,000
+    </p></div>
+   
+
+    <button
+    class="add-cart w-full border border-white bg-black text-white py-3 rounded-lg"
+
+    data-id="Lip Gloss big tube set"
+    data-name="Lip Gloss big tube set"
+    data-price="24000"
+    data-image="img/WhatsApp Image 2026-07-19 at 08.42.35 (4).jpeg">
+
+      Add to Cart
+
+    </button>
+    <button class=" border border-white mt-5 py-3 font-extrabold rounded-lg w-full  bg-black text-white">
+   <a href="./cart.html"> place order</a></button>
+
+</div></div>
+<!-------3rd product section-->
+<h1 class=" font-extrabold flex justify-center mt-10 border-b">custard meal</h1>
+<div class="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-4 mb-6 gap-2 space-y-10 ">
+<div class="product-card p-5">
+
+    <img
+    src="./img/WhatsApp Image 2026-07-19 at 08.42.32 (2).jpeg"
+    >
+
+    <h2 class="text-xl font-bold mt-4">
+        custard (pineaple flavour and chocolate flavour )
+    </h2>
+
+    <p class=" mb-4">
+        ₦5,000
+    </p>
+    
+
+    <button
+    class="add-cart w-full border border-white bg-black text-white py-3 rounded-lg"
+
+    data-id="custard pineapleflavour and chocolateflavour"
+    data-name="custard pineapleflavour and chocolateflavour"
+    data-price="5000"
+    data-image="img/WhatsApp Image 2026-07-19 at 08.42.32 (2).jpeg">
+
+      Add to Cart
+
+    </button>
+    <button class=" border border-white mt-5 py-3 font-extrabold rounded-lg w-full  bg-black text-white">
+   <a href="./cart.html"> place order</a></button>
+
+</div>
+<div class=" product-card p-5">
+
+    <img
+    src="./img/WhatsApp Image 2026-07-19 at 08.42.32 (3).jpeg"
+    >
+
+    <h2 class="text-xl font-bold mt-4">
+        custard (Banana flavour and vanila flavour )
+    </h2>
+
+    <p class=" mb-4">
+        ₦3,000
+    </p>
+   
+
+    <button
+    class="add-cart w-full border border-white bg-black text-white py-3 rounded-lg"
+
+    data-id="custard(Bananaflavourandvanilaflavour)"
+    data-name="custard(Bananaflavourandvanilaflavour)"
+    data-price="3000"
+    data-image="img/WhatsApp Image 2026-07-19 at 08.42.32 (3).jpeg">
+
+      Add to Cart
+
+    </button>
+    <button class=" border border-white mt-5 py-3 font-extrabold rounded-lg w-full  bg-black text-white">
+   <a href="./cart.html"> place order</a></button>
+
+</div>
+<div class="product-card p-5">
+
+    <img
+    src="./img/WhatsApp Image 2026-07-19 at 08.42.33 (1).jpeg"
+    >
+
+    <h2 class="text-xl font-bold mt-4">
+        custard (All flavours )
+    </h2>
+
+    <p class=" mb-4">
+        ₦6,000
+    </p>
+    
+
+    <button
+    class="add-cart w-full bg-black border border-white text-white py-3 rounded-lg"
+
+    data-id="custard (All flavours)"
+    data-name="custard (All flavours )"
+    data-price="6000"
+    data-image="img/WhatsApp Image 2026-07-19 at 08.42.33 (1).jpeg">
+
+      Add to Cart
+
+    </button>
+    <button class=" border border-white mt-5 py-3 font-extrabold rounded-lg w-full  bg-black text-white">
+   <a href="./cart.html"> place order</a></button>
+
+</div>
+<div class=" product-card p-5">
+
+    <img
+    src="./img/WhatsApp Image 2026-07-19 at 08.42.33 (1).jpeg"
+    >
+
+    <h2 class="text-xl font-bold mt-4">
+        custard (All flavours )
+    </h2>
+
+    <p class=" mb-4">
+        ₦6,000
+    </p>
+  
+
+    <button
+    class="add-cart w-full border border-white bg-black text-white py-3 rounded-lg"
+
+    data-id=" custard (All flavours )"
+    data-name="custard (All flavours )"
+    data-price="6000"
+    data-image="img/WhatsApp Image 2026-07-19 at 08.42.33 (1).jpeg">
+
+      Add to Cart
+
+    </button>
+    <button class=" border border-white mt-5 py-3 font-extrabold rounded-lg w-full  bg-black text-white">
+   <a href="./cart.html"> place order</a></button>
+
+</div>
+
+
+  </div>
+  <!-------4th product section-->
+<h1 class=" font-extrabold flex justify-center mt-10 border-b">our self care products</h1>
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 mb-6 gap-2 space-y-10 ">
+<div class=" product-card p-5">
+
+    <img
+    src="./img/WhatsApp Image 2026-07-19 at 08.42.33.jpeg"
+    >
+
+    <h2 class="text-xl font-bold mt-4">
+       pam luxe Vaseline
+    </h2>
+
+    <p class=" mb-4">
+        ₦2,000
+    </p>
+    
+
+    <button
+    class="add-cart w-full bg-black border border-white text-white py-3 rounded-lg"
+
+    data-id="pam luxe Vaseline"
+    data-name="pam luxe Vaseline"
+    data-price="2000"
+    data-image="img/WhatsApp Image 2026-07-19 at 08.42.33.jpeg">
+
+      Add to Cart
+
+    </button>
+    <button class=" border border-white mt-5 py-3 font-extrabold rounded-lg w-full  bg-black text-white">
+   <a href="./cart.html"> place order</a></button>
+
+</div>
+<div class=" product-card p-5">
+
+    <img
+    src="./img/WhatsApp Image 2026-07-19 at 08.42.30.jpeg"
+    >
+
+    <h2 class="text-xl font-bold mt-4">
+        Tongue scraper set
+    </h2>
+
+    <div class="flex gap-2"><p class=" mb-4">
+        ₦4,000
+    </p> <p class="line-through">₦4,500</p></div>
+    
+    
+
+   
+
+    <button
+    class="add-cart w-full border border-white bg-black text-white py-3 rounded-lg"
+
+    data-id="Tongue scraper set"
+    data-name="Tongue scraper set"
+    data-price="4000"
+    data-image="img/WhatsApp Image 2026-07-19 at 08.42.30.jpeg">
+
+      Add to Cart
+
+    </button>
+    <button class=" border border-white mt-5 py-3 font-extrabold rounded-lg w-full  bg-black text-white">
+   <a href="./cart.html"> place order</a></button>
+
+</div>
+<div class=" product-card p-5">
+
+    <img
+    src="./img/WhatsApp Image 2026-07-19 at 08.42.32.jpeg"
+    >
+
+    <h2 class="text-xl font-bold mt-4">
+        Nano mist set
+    </h2>
+
+   <div class="flex gap-2"><p class=" mb-4">
+        ₦13,000
+    </p>
+    <p class="line-through mb-4">
+        ₦13,500
+    </p></div> 
+
+    
+
+    <button
+    class="add-cart w-full border border-white bg-black text-white py-3 rounded-lg"
+
+    data-id="Nano mist set"
+    data-name="Nano mist set"
+    data-price="13000"
+    data-image="img/WhatsApp Image 2026-07-19 at 08.42.32.jpeg">
+
+      Add to Cart
+
+    </button>
+    <button class=" border border-white mt-5 py-3 font-extrabold rounded-lg w-full  bg-black text-white">
+   <a href="./cart.html"> place order</a></button>
+
+</div>
+<div class=" product-card p-5">
+
+    <img
+    src="./img/WhatsApp Image 2026-07-19 at 08.42.34 (1).jpeg"
+    >
+
+    <h2 class="text-xl font-bold mt-4">
+        Silicon body scrub
+    </h2>
+
+    <p class="text-gray-500 mb-4">
+        ₦4,000
+    </p>
+  
+
+    <button
+    class="add-cart w-full bg-black border border-white text-white py-3 rounded-lg"
+
+    data-id=" Silicon body scrub"
+    data-name=" Silicon body scrub"
+    data-price="4000"
+    data-image="img/WhatsApp Image 2026-07-19 at 08.42.34 (1).jpeg">
+
+      Add to Cart
+
+    </button>
+    <button class=" border border-white mt-5 py-3 font-extrabold rounded-lg w-full  bg-black text-white">
+   <a href="./cart.html"> place order</a></button>
+
+</div>
+<div class=" product-card p-5">
+
+    <img
+    src="./img/WhatsApp Image 2026-07-19 at 08.42.34 (5).jpeg"
+    >
+
+    <h2 class="text-xl font-bold mt-4">
+        lip brush
+    </h2>
+
+    <p class=" mb-4">
+        ₦1,000
+    </p>
+  
+
+    <button
+    class="add-cart w-full border border-white bg-black text-white py-3 rounded-lg"
+
+    data-id="lip brush"
+    data-name="lip brush"
+    data-price="1000"
+    data-image="img/WhatsApp Image 2026-07-19 at 08.42.34 (5).jpeg">
+
+      Add to Cart
+
+    </button>
+    <button class=" border border-white mt-5 py-3 font-extrabold rounded-lg w-full  bg-black text-white">
+   <a href="./cart.html"> place order</a></button>
+
+</div>
+
+
+  </div>
+
+</section>
+
+
+
+
+
+
+
+<!-------footer-->
+<footer class="w-full bg-black text-white h-auto">
+  <div class="max-w-7xl mx-auto px-6">
+<div class="flex flex-col md:flex-row p-6 space-y-6">
+<div class="flex-1 space-y-4">
+<div>
+  <h1 class="font-extrabold">Welcome to Palm Luxe Empire 🌷</h1>
+  <p>Where luxury meets self-care ✨</p>
+</div>
+</div>
+ 
+<div class="flex-1 space-y-4">
+<div><h1 class="font-extrabold "><a href="./jersey.html"><p>shop</p></a></h1>
+<p>Do you have any suggestions?</p>
+<p><a href="mailto:Kanumiracle14@gmail.com">Email us <i class="fa-solid fa-envelope"></i></a></p>
+<p>Do you need assistance?</p>
+<p>  <a href="tel:+2349030735969">Give us a call <i class="fa-solid fa-phone"></i></a></p>
+
+</div>
+</div>
+<div class="flex-1 space-y-4">
+<div><h1 class="font-extrabold"> social media</h1>
+  <div class="flex gap-4">
+<a href="tel:+2349030735969"><i class="fa-solid fa-phone"></i></a>
+          <a href="mailto:Kanumiracle14@gmail.com"><i class="fa-solid fa-envelope"></i></a>
+          
+            <a href="https://www.instagram.com/pam_luxe_empire_/"><i class="fa-brands fa-instagram"></i></a>
+  <a href="https://www.tiktok.com/@realpamluxe_empire_"><i class="fa-brands fa-tiktok"></i></a>
+  <a href="https://wa.me/2349030735969?text=Hello,Welcome to Palm Luxe Empire 🌷 Where luxury meets self-care ✨
+Kindly hold on while we attend to you 💖.">
+    <i class="fa-brands fa-whatsapp"></i></a>
+  </div>
+          
+          
+    
+</div>
+</div>
+  </div>
+ 
+</div>
+  
+
+
+
+</footer>
+     <script src="./script.js"></script> 
+   <script src="./product.js"></script>
+   <script src="./cartcount.js"></script>
+   
+
+</body>
+</html>

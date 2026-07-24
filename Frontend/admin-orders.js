@@ -1,24 +1,43 @@
-console.log("Admin Orders Loaded");
+console.log("Palm Luxe Empire Admin Loaded");
+
+const API_URL = "https://palm-luxe-empire.onrender.com/api/orders";
 
 async function loadOrders() {
+
+    const container = document.getElementById("orders");
+
+    container.innerHTML = `
+        <div class="text-center py-10 text-gray-500 text-lg">
+            Loading orders...
+        </div>
+    `;
+
     try {
-        const response = await fetch("https://adimchi-jersery-store-1.onrender.com/api/orders");
+
+        const response = await fetch(API_URL);
 
         if (!response.ok) {
-            throw new Error("Failed to fetch orders");
+            throw new Error("Failed to fetch orders.");
         }
 
         const orders = await response.json();
 
-        const container = document.getElementById("orders");
         container.innerHTML = "";
 
         if (orders.length === 0) {
+
             container.innerHTML = `
-                <div class="bg-white shadow rounded-lg p-8 text-center">
-                    <h2 class="text-2xl font-bold">No Orders Yet</h2>
+                <div class="bg-white rounded-xl shadow-lg p-10 text-center">
+                    <h2 class="text-2xl font-bold mb-2">
+                        No Orders Yet
+                    </h2>
+
+                    <p class="text-gray-500">
+                        Orders will appear here once customers place them.
+                    </p>
                 </div>
             `;
+
             return;
         }
 
@@ -33,8 +52,8 @@ async function loadOrders() {
 
                         <img
                             src="${item.image}"
-                            class="w-20 h-20 rounded object-cover"
                             alt="${item.name}"
+                            class="w-20 h-20 rounded-lg object-cover"
                         >
 
                         <div class="flex-1">
@@ -43,67 +62,79 @@ async function loadOrders() {
                                 ${item.name}
                             </h3>
 
-                            <p>Size: ${item.size}</p>
+                            <p>
+                                Quantity: ${item.quantity}
+                            </p>
 
-                            <p>Quantity: ${item.quantity}</p>
-
-                            <p class="font-semibold">
-                                ₦${item.price.toLocaleString()}
+                            <p class="font-semibold text-green-700">
+                                ₦${(item.price || 0).toLocaleString()}
                             </p>
 
                         </div>
 
                     </div>
                 `;
-
             });
 
             container.innerHTML += `
 
                 <div class="bg-white shadow-lg rounded-xl p-6 mb-8">
 
-                    <div class="flex justify-between items-start">
+                    <div class="flex flex-col md:flex-row justify-between gap-6">
 
                         <div>
 
-                            <h2 class="text-2xl font-bold">
+                            <h2 class="text-2xl font-bold mb-3">
                                 ${order.customerName}
                             </h2>
 
-                            <p class="text-gray-600">
+                            <p class="text-gray-700">
+                                <strong>Email:</strong>
+                                ${order.email}
+                            </p>
+
+                            <p class="text-gray-700">
+                                <strong>Phone:</strong>
                                 ${order.phone}
                             </p>
 
-                            <p class="text-gray-600">
+                            <p class="text-gray-700">
+                                <strong>Address:</strong>
                                 ${order.address}
                             </p>
 
                         </div>
 
-                        <div class="text-right">
+                        <div class="text-left md:text-right">
 
-                            <p class="font-semibold">
-                                Total
+                            <p class="text-gray-500">
+                                Total Amount
                             </p>
 
                             <h2 class="text-3xl font-bold text-green-600">
-                                ₦${order.total.toLocaleString()}
+                                ₦${(order.total || 0).toLocaleString()}
                             </h2>
 
                         </div>
 
                     </div>
 
+                    <hr class="my-6">
+
+                    <h3 class="text-xl font-bold mb-4">
+                        Ordered Products
+                    </h3>
+
                     ${itemsHTML}
 
-                    <div class="mt-6 flex flex-wrap gap-3">
+                    <div class="flex flex-wrap gap-3 mt-6">
 
-                        <span class="bg-yellow-200 px-4 py-2 rounded-full font-medium">
-                            Payment: ${order.paymentStatus}
+                        <span class="bg-green-100 text-green-700 px-4 py-2 rounded-full font-semibold">
+                            Payment: ${order.paymentMethod}
                         </span>
 
-                        <span class="bg-blue-200 px-4 py-2 rounded-full font-medium">
-                            Order: ${order.orderStatus}
+                        <span class="bg-blue-100 text-blue-700 px-4 py-2 rounded-full font-semibold">
+                            Status: ${order.status}
                         </span>
 
                     </div>
@@ -111,6 +142,7 @@ async function loadOrders() {
                     <div class="mt-6 text-sm text-gray-500">
 
                         Ordered on:
+
                         ${new Date(order.createdAt).toLocaleString()}
 
                     </div>
@@ -125,14 +157,20 @@ async function loadOrders() {
 
         console.error(error);
 
-        document.getElementById("orders").innerHTML = `
-            <div class="bg-red-100 text-red-700 p-6 rounded-lg">
-                Failed to load orders.
-                <br><br>
-                ${error.message}
+        container.innerHTML = `
+            <div class="bg-red-100 text-red-700 rounded-lg p-8 text-center">
+
+                <h2 class="text-2xl font-bold mb-3">
+                    Failed to load orders
+                </h2>
+
+                <p>${error.message}</p>
+
             </div>
         `;
+
     }
+
 }
 
 loadOrders();

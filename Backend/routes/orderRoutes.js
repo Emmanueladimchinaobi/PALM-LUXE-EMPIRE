@@ -5,13 +5,19 @@ const sendOrderEmail = require("../utils/sendOrderEmail");
 
 // Create a new order
 router.post("/", async (req, res) => {
+    console.log("POST /api/orders hit");
+    console.log(req.body);
+
     try {
         const order = new Order(req.body);
 
         const savedOrder = await order.save();
 
-        // Send email to store owner
+        console.log("Order saved");
+
         await sendOrderEmail(savedOrder);
+
+        console.log("Email function finished");
 
         res.status(201).json({
             success: true,
@@ -21,7 +27,6 @@ router.post("/", async (req, res) => {
 
     } catch (error) {
         console.error(error);
-
         res.status(500).json({
             success: false,
             message: "Failed to place order."

@@ -97,19 +97,23 @@ if (placeOrderBtn) {
 
     placeOrderBtn.addEventListener("click", async () => {
 
+        // Disable the button immediately
+        placeOrderBtn.disabled = true;
+        placeOrderBtn.textContent = "Placing Order...";
+
         const customerName = document.getElementById("customerName").value.trim();
         const email = document.getElementById("email").value.trim();
-
         const phone = document.getElementById("phone").value.trim();
-
         const address = document.getElementById("address").value.trim();
 
         if (!customerName || !email || !phone || !address) {
 
             alert("Please fill in all customer details.");
 
-            return;
+            placeOrderBtn.disabled = false;
+            placeOrderBtn.textContent = "Place Order";
 
+            return;
         }
 
         const cart = JSON.parse(localStorage.getItem("cart")) || [];
@@ -118,48 +122,40 @@ if (placeOrderBtn) {
 
             alert("Your cart is empty.");
 
-            return;
+            placeOrderBtn.disabled = false;
+            placeOrderBtn.textContent = "Place Order";
 
+            return;
         }
 
         const total = cart.reduce((sum, item) => {
-
             return sum + (item.price * item.quantity);
-
         }, 0);
 
-  const order = {
-    customerName,
-    email,
-    phone,
-    address,
-    items: cart,
-    total: total,
-    paymentMethod: "Bank Transfer"
-};
+        const order = {
+            customerName,
+            email,
+            phone,
+            address,
+            items: cart,
+            total,
+            paymentMethod: "Bank Transfer"
+        };
+
         try {
 
             const response = await fetch("https://palm-luxe-empire.onrender.com/api/orders", {
-
                 method: "POST",
-
                 headers: {
-
                     "Content-Type": "application/json"
-
                 },
-
                 body: JSON.stringify(order)
-
             });
 
-           if (!response.ok) {
-
-    const errorText = await response.text();
-
-    throw new Error(errorText);
-
-}
+            if (!response.ok) {
+                const errorText = await response.text();
+                throw new Error(errorText);
+            }
 
             alert("Order placed successfully!");
 
@@ -167,13 +163,16 @@ if (placeOrderBtn) {
 
             window.location.href = "index.html";
 
- } catch (error) {
+        } catch (error) {
 
-    console.error(error);
+            console.error(error);
 
-    alert(error.message);
+            alert(error.message);
 
-}
+            // Re-enable button if order fails
+            placeOrderBtn.disabled = false;
+            placeOrderBtn.textContent = "Place Order";
+        }
 
     });
 

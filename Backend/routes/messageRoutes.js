@@ -2,7 +2,7 @@ const express = require("express");
 
 const router = express.Router();
 
-const Message = require("../models/Message");
+const Message = require("../models/temp");
 
 router.get("/", async (req, res) => {
 

@@ -9,7 +9,7 @@ const connectDB = require("./config/db");
 const orderRoutes = require("./routes/orderRoutes");
 const messageRoutes = require("./routes/messageRoutes");
 
-const Message = require("./models/temp");
+const Message = require("./models/Message");
 
 dotenv.config();
 

@@ -1,4 +1,4 @@
-const Message = require("./models/temp");
+const Message = require("./models/Message");
 
 module.exports = (io) => {
 

@@ -3,13 +3,19 @@ const closeBtn = document.getElementById("closeBtn");
 const mobileMenu = document.getElementById("mobileMenu");
 
 menuBtn.addEventListener("click", () => {
-  mobileMenu.classList.remove("hidden");
-  mobileMenu.classList.add("flex");
+   mobileMenu.classList.toggle("-translate-x-full");
+  mobileMenu.classList.toggle("-translate-x-0");
+  mobileMenu.classList.toggle("opacity-0");
+   
+  
 });
 
 closeBtn.addEventListener("click", () => {
-  mobileMenu.classList.remove("flex");
-  mobileMenu.classList.add("hidden");
+  mobileMenu.classList.toggle("-translate-x-full");
+  mobileMenu.classList.toggle("-translate-x-0");
+  mobileMenu.classList.toggle("opacity-0");
+   
+  
 });
  const Clubbtn = document.getElementById("Club-btn");
  const Clubmenu = document.getElementById("Club-menu");

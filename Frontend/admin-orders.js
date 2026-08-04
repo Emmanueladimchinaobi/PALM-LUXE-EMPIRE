@@ -146,6 +146,12 @@ async function loadOrders() {
                         ${new Date(order.createdAt).toLocaleString()}
 
                     </div>
+                    <button
+    onclick="deleteOrder('${order._id}')"
+    class="mt-6 bg-red-600 hover:bg-red-700 text-white px-5 py-2 rounded-lg transition"
+>
+    Delete Order
+</button>
 
                 </div>
 
@@ -174,3 +180,35 @@ async function loadOrders() {
 }
 
 loadOrders();
+async function deleteOrder(id) {
+
+    const confirmDelete = confirm("Are you sure you want to delete this order?");
+
+    if (!confirmDelete) return;
+
+    try {
+
+        const response = await fetch(
+            `https://palm-luxe-empire.onrender.com/api/orders/${id}`,
+            {
+                method: "DELETE"
+            }
+        );
+
+        if (!response.ok) {
+            throw new Error("Failed to delete order");
+        }
+
+        alert("Order deleted successfully.");
+
+        loadOrders();
+
+    } catch (error) {
+
+        console.error(error);
+
+        alert(error.message);
+
+    }
+
+}

@@ -1,3 +1,7 @@
+let selectedVisitor = null;
+
+const customerList = document.getElementById("customer-list");
+
 const socket = io("https://palm-luxe-empire.onrender.com");
 
 const messages = document.getElementById("messages");
@@ -8,23 +12,45 @@ const send = document.getElementById("admin-send");
 
 // Load history
 
-socket.on("load_messages", history => {
+socket.on("load_messages", (history) => {
 
-messages.innerHTML="";
+    window.allMessages = history || [];
 
-history.forEach(msg=>{
+    const visitors = [...new Set(window.allMessages.map(m => m.visitorId))];
 
-addMessage(msg.sender,msg.message);
+    customerList.innerHTML = "";
 
-});
+    visitors.forEach(id => {
+
+        customerList.innerHTML += `
+            <div
+                class="p-4 border-b cursor-pointer hover:bg-gray-100"
+                onclick="selectVisitor('${id}')"
+            >
+                👤 ${id}
+            </div>
+        `;
+
+    });
 
 });
 
 // Receive
 
-socket.on("receive_message", msg=>{
+socket.on("receive_message", (msg) => {
 
-addMessage(msg.sender,msg.message);
+    // Update message history
+    window.allMessages.push(msg);
+
+    // If no customer is selected, don't display it
+    if (!selectedVisitor) return;
+
+    // Only display messages for the selected visitor
+    if (msg.visitorId === selectedVisitor) {
+
+        addMessage(msg.sender, msg.message);
+
+    }
 
 });
 
@@ -36,11 +62,21 @@ const text=input.value.trim();
 
 if(!text) return;
 
+if(!selectedVisitor){
+
+    alert("Select a customer first.");
+
+    return;
+
+}
+
 socket.emit("send_message",{
 
-sender:"Support",
+    visitorId:selectedVisitor,
 
-message:text
+    sender:"Support",
+
+    message:text
 
 });
 
@@ -67,5 +103,25 @@ div.innerHTML=`<strong>${sender}</strong><br>${text}`;
 messages.appendChild(div);
 
 messages.scrollTop=messages.scrollHeight;
+
+}
+
+function selectVisitor(id){
+
+    selectedVisitor = id;
+
+    messages.innerHTML="";
+
+    const chat = window.allMessages.filter(
+
+        m => m.visitorId === id
+
+    );
+
+    chat.forEach(msg=>{
+
+        addMessage(msg.sender,msg.message);
+
+    });
 
 }

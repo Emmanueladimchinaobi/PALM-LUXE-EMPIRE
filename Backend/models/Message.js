@@ -1,6 +1,10 @@
 const mongoose = require("mongoose");
 
 const messageSchema = new mongoose.Schema({
+    visitorId: {
+    type: String,
+    required: true
+},
 
     sender: {
         type: String,
@@ -24,3 +28,4 @@ const messageSchema = new mongoose.Schema({
 });
 
 module.exports = mongoose.model("Message", messageSchema);
+

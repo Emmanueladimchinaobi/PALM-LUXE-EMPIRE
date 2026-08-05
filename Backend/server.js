@@ -99,13 +99,15 @@ console.log(data);
 
             const savedMessage = await Message.create({
 
-                sender: data.sender,
+    visitorId: data.visitorId,
 
-                message: data.message,
+    sender: data.sender,
 
-                room: "general"
+    message: data.message,
 
-            });
+    room: "general"
+
+});
 
             io.emit("receive_message", savedMessage);
 

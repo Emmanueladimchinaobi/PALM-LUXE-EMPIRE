@@ -28,7 +28,7 @@ cart.forEach(item => {
 
     summary.innerHTML += `
 
-    <div class="flex gap-4 mb-6 border-b pb-6">
+    <div class="flex flex-col md:flex-row gap-4 mb-6 border-b pb-6 ">
 
         <img
             src="${item.image}"
@@ -37,7 +37,7 @@ cart.forEach(item => {
 
         <div class="flex-1">
 
-            <h3 class="font-bold text-lg">
+            <h3 class="font-bold text-sm">
                 ${item.name}
             </h3>
 

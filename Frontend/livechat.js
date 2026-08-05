@@ -36,7 +36,7 @@ closeBtn2.addEventListener("click", () => {
 // Load previous messages
 socket.on("load_messages", (history) => {
 
-    messages.innerHTML = "";
+    messages.innerHTML = "How can we be of help?";
 
     history.forEach((msg) => {
 

@@ -30,16 +30,16 @@ function displayCart() {
 
         cartItems.innerHTML += `
 
-        <div class="bg-white rounded-xl shadow-lg p-5 flex items-center gap-5">
+        <div class="bg-white  rounded-xl shadow-lg p-5  flex flex-col items-center md:flex-row gap-2 border border-red-600 ">
 
             <img
                 src="${item.image}"
-                class="w-24 h-24 object-cover rounded-lg"
+                class="w-75 h-100 object-contain rounded-lg"
             >
 
-            <div class="flex-1">
+            <div class="flex-1 ">
 
-                <h2 class="text-xl font-bold">
+                <h2 class="text-sm font-bold ">
                     ${item.name}
                 </h2>
 
@@ -79,7 +79,7 @@ function displayCart() {
 
                 <button
                     onclick="removeItem(${index})"
-                    class="mt-3 bg-red-600 text-white px-4 py-2 rounded-lg">
+                    class="mt-3 bg-black text-white px-4 py-2 rounded-lg">
                     Remove
                 </button>
 

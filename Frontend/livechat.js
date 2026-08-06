@@ -8,6 +8,15 @@ if (!visitorId) {
 
 const socket = io("https://palm-luxe-empire.onrender.com");
 
+
+socket.on("connect", () => {
+
+    console.log("Connected:", socket.id);
+
+    socket.emit("join_room", visitorId);
+
+});
+
 const chatBtn = document.getElementById("chat-btn");
 const chatBox = document.getElementById("chat-box");
 const closeBtn2 = document.getElementById("close-chat");
@@ -36,7 +45,7 @@ closeBtn2.addEventListener("click", () => {
 // Load previous messages
 socket.on("load_messages", (history) => {
 
-    messages.innerHTML = "How can we be of help?";
+    messages.innerHTML = "";
 
     history.forEach((msg) => {
 

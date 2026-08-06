@@ -1,52 +1,39 @@
 let selectedVisitor = null;
+let allMessages = [];
 
 const customerList = document.getElementById("customer-list");
+const messages = document.getElementById("messages");
+const input = document.getElementById("admin-input");
+const send = document.getElementById("admin-send");
 
 const socket = io("https://palm-luxe-empire.onrender.com");
 
-const messages = document.getElementById("messages");
+// Wait until connected
+socket.on("connect", () => {
 
-const input = document.getElementById("admin-input");
+    console.log("Admin Connected:", socket.id);
 
-const send = document.getElementById("admin-send");
-
-// Load history
-
-socket.on("load_messages", (history) => {
-
-    window.allMessages = history || [];
-
-    const visitors = [...new Set(window.allMessages.map(m => m.visitorId))];
-
-    customerList.innerHTML = "";
-
-    visitors.forEach(id => {
-
-        customerList.innerHTML += `
-            <div
-                class="p-4 border-b cursor-pointer hover:bg-gray-100"
-                onclick="selectVisitor('${id}')"
-            >
-                👤 ${id}
-            </div>
-        `;
-
-    });
+    socket.emit("admin_load");
 
 });
 
-// Receive
+// Load all conversations
+socket.on("admin_history", (history) => {
 
-socket.on("receive_message", (msg) => {
+    allMessages = history || [];
 
-    // Update message history
-    window.allMessages.push(msg);
+    renderCustomerList();
 
-    // If no customer is selected, don't display it
-    if (!selectedVisitor) return;
+});
 
-    // Only display messages for the selected visitor
-    if (msg.visitorId === selectedVisitor) {
+// Receive new message
+socket.on("admin_new_message", (msg) => {
+
+    allMessages.push(msg);
+
+    renderCustomerList();
+
+    if (selectedVisitor === msg.visitorId) {
 
         addMessage(msg.sender, msg.message);
 
@@ -54,74 +41,134 @@ socket.on("receive_message", (msg) => {
 
 });
 
-// Send
+// Render sidebar
+function renderCustomerList() {
 
-send.onclick=()=>{
+    customerList.innerHTML = "";
 
-const text=input.value.trim();
+    const visitors = [...new Set(allMessages.map(m => m.visitorId))];
 
-if(!text) return;
+    visitors.forEach(visitorId => {
 
-if(!selectedVisitor){
+        const div = document.createElement("div");
 
-    alert("Select a customer first.");
+        div.className =
+            "p-4 border-b cursor-pointer hover:bg-gray-100";
 
-    return;
+        div.innerHTML = `👤 ${visitorId}`;
 
-}
+        div.onclick = () => {
 
-socket.emit("send_message",{
+            selectVisitor(visitorId);
 
-    visitorId:selectedVisitor,
+        };
 
-    sender:"Support",
+        customerList.appendChild(div);
 
-    message:text
-
-});
-
-input.value="";
-
-};
-
-function addMessage(sender,text){
-
-const div=document.createElement("div");
-
-if(sender==="Support"){
-
-div.className="bg-pink-600 text-white p-3 rounded-lg ml-auto w-fit max-w-[70%]";
-
-}else{
-
-div.className="bg-gray-300 p-3 rounded-lg mr-auto w-fit max-w-[70%]";
+    });
 
 }
 
-div.innerHTML=`<strong>${sender}</strong><br>${text}`;
+// Open conversation
+function selectVisitor(visitorId) {
 
-messages.appendChild(div);
+    selectedVisitor = visitorId;
 
-messages.scrollTop=messages.scrollHeight;
+    messages.innerHTML = "";
 
-}
+    const conversation = allMessages.filter(
 
-function selectVisitor(id){
-
-    selectedVisitor = id;
-
-    messages.innerHTML="";
-
-    const chat = window.allMessages.filter(
-
-        m => m.visitorId === id
+        msg => msg.visitorId === visitorId
 
     );
 
-    chat.forEach(msg=>{
+    conversation.forEach(msg => {
 
-        addMessage(msg.sender,msg.message);
+        addMessage(msg.sender, msg.message);
 
     });
+
+}
+
+// Display message
+function addMessage(sender, text) {
+
+    const div = document.createElement("div");
+
+    if (sender === "Support") {
+
+        div.className =
+            "bg-pink-600 text-white p-3 rounded-lg ml-auto mb-3 max-w-[70%] w-fit";
+
+    } else {
+
+        div.className =
+            "bg-gray-300 text-black p-3 rounded-lg mr-auto mb-3 max-w-[70%] w-fit";
+
+    }
+
+    div.innerHTML = `
+        <strong>${sender}</strong><br>
+        ${text}
+    `;
+
+    messages.appendChild(div);
+
+    messages.scrollTop = messages.scrollHeight;
+
+}
+
+// Send reply
+send.addEventListener("click", sendReply);
+
+input.addEventListener("keypress", (e) => {
+
+    if (e.key === "Enter") {
+
+        sendReply();
+
+    }
+
+});
+
+function sendReply() {
+
+    const text = input.value.trim();
+
+    if (!text) return;
+
+    if (!selectedVisitor) {
+
+        alert("Please select a customer.");
+
+        return;
+
+    }
+
+    socket.emit("send_message", {
+
+        visitorId: selectedVisitor,
+
+        sender: "Support",
+
+        message: text
+
+    });
+
+    // Show immediately
+    addMessage("Support", text);
+
+    // Save locally
+    allMessages.push({
+
+        visitorId: selectedVisitor,
+
+        sender: "Support",
+
+        message: text
+
+    });
+
+    input.value = "";
 
 }

@@ -70,21 +70,22 @@ app.get("/", (req, res) => {
 
 });
 
+
 // Socket.IO
-io.on("connection", async (socket) => {
+io.on("connection", (socket) => {
 
     console.log("User Connected:", socket.id);
 
+
+    socket.on("admin_load", async () => {
+
     try {
 
-        // Send previous messages
         const history = await Message.find().sort({
-
             createdAt: 1
-
         });
 
-        socket.emit("load_messages", history);
+        socket.emit("admin_history", history);
 
     } catch (err) {
 
@@ -92,24 +93,64 @@ io.on("connection", async (socket) => {
 
     }
 
-    // Receive Message
+});
+
+    // Customer joins their own room
+    socket.on("join_room", async (visitorId) => {
+
+        socket.join(visitorId);
+
+        console.log(`${socket.id} joined room ${visitorId}`);
+
+        try {
+
+            // Load ONLY this visitor's messages
+            const history = await Message.find({
+                visitorId: visitorId
+            }).sort({
+                createdAt: 1
+            });
+
+            socket.emit("load_messages", history);
+
+        } catch (err) {
+
+            console.error(err);
+
+        }
+
+    });
+
+    // Send Message
     socket.on("send_message", async (data) => {
-console.log(data);
+
+        console.log(data);
+
         try {
 
             const savedMessage = await Message.create({
 
-    visitorId: data.visitorId,
+                visitorId: data.visitorId,
 
-    sender: data.sender,
+                sender: data.sender,
 
-    message: data.message,
+                message: data.message,
 
-    room: "general"
+                room: data.visitorId
 
-});
+            });
 
-            io.emit("receive_message", savedMessage);
+            // Send message to the customer
+io.to(data.visitorId).emit(
+    "receive_message",
+    savedMessage
+);
+
+// Notify the admin dashboard
+io.emit(
+    "admin_new_message",
+    savedMessage
+);
 
         } catch (err) {
 

@@ -30,11 +30,11 @@ function displayCart() {
 
         cartItems.innerHTML += `
 
-        <div class="bg-white  rounded-xl shadow-lg p-5  flex flex-col items-center md:flex-row gap-2 border border-red-600 ">
+        <div class="bg-black text-white rounded-xl shadow-lg p-5  flex flex-col items-center md:flex-row gap-8  ">
 
             <img
                 src="${item.image}"
-                class="w-75 h-100 object-contain rounded-lg"
+                class="w-75 h-100 object-contain rounded-lg animate-gentle"
             >
 
             <div class="flex-1 ">
@@ -45,7 +45,7 @@ function displayCart() {
 
                 
 
-                <p class="text-gray-600 mt-2">
+                <p class=" mt-2">
                     ₦${item.price.toLocaleString()}
                 </p>
 
@@ -53,7 +53,7 @@ function displayCart() {
 
                     <button
                         onclick="decrease(${index})"
-                        class="bg-gray-200 px-3 py-1 rounded">
+                        class="border border-white px-3 py-1 rounded">
                         -
                     </button>
 
@@ -63,7 +63,7 @@ function displayCart() {
 
                     <button
                         onclick="increase(${index})"
-                        class="bg-gray-200 px-3 py-1 rounded">
+                        class="border border-white px-3 py-1 rounded">
                         +
                     </button>
 
@@ -79,7 +79,7 @@ function displayCart() {
 
                 <button
                     onclick="removeItem(${index})"
-                    class="mt-3 bg-black text-white px-4 py-2 rounded-lg">
+                    class="mt-3 border border-white text-white px-4 py-2 rounded-lg">
                     Remove
                 </button>
 

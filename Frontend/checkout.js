@@ -28,7 +28,7 @@ cart.forEach(item => {
 
     summary.innerHTML += `
 
-    <div class="flex flex-col md:flex-row gap-4 mb-6 border-b pb-6 ">
+    <div class="flex flex-col md:flex-row gap-4 mb-6 border-b pb-6 bg-black text-white">
 
         <img
             src="${item.image}"
@@ -43,7 +43,7 @@ cart.forEach(item => {
 
             
 
-            <p class="text-gray-500">
+            <p class="">
                 Quantity: ${item.quantity}
             </p>
 

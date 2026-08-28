@@ -7,6 +7,7 @@ const plusmenu = document.getElementById ("plus-menu");
 
 plusbtn.addEventListener("click", () => {
     plusmenu.classList.toggle("hidden");
+    plusbtn.classList.toggle("rotate-224");
 });
 
 
@@ -28,6 +29,7 @@ const plusmenu2 = document.getElementById ("plus-menu2");
 
 plusbtn2.addEventListener("click", () => {
     plusmenu2.classList.toggle("hidden");
+    plusbtn2.classList.toggle("rotate-224");
 });
 
 
@@ -50,6 +52,7 @@ const plusmenu3 = document.getElementById ("plus-menu3");
 
 plusbtn3.addEventListener("click", () => {
     plusmenu3.classList.toggle("hidden");
+    plusbtn3.classList.toggle("rotate-224");
 });
 
 
@@ -70,6 +73,7 @@ const plusmenu4 = document.getElementById ("plus-menu4");
 
 plusbtn4.addEventListener("click", () => {
     plusmenu4.classList.toggle("hidden");
+    plusbtn4.classList.toggle("rotate-224");
 });
 
 

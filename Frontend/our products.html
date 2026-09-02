@@ -135,145 +135,298 @@ style="font-family: 'Times New Roman', Times, serif;">
 
 
 <h1 id="custards" class=" font-extrabold flex justify-center mt-10 p-6 underline">custard meal</h1>
-<section class="max-w-7xl mx-auto px-6">
 
-  <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 mb-6 gap-2 space-y-10 ">
-<div class="product-card p-5 ">
 
-    <img
-    src="./img/WhatsApp Image 2026-07-19 at 08.42.32 (2).jpeg" class="rounded-t-full animate-gentle"
-    >
 
-    <h2 class="text-white font-extrabold mt-4">
-        custard (pineaple flavour and chocolate flavour )
-    </h2>
+<!-- PRODUCT SLIDER -->
+<section class="w-full  text-white  py-16">
 
-    <p class=" mb-4">
-        ₦5,000
-    </p>
+    <div class="relative max-w-7xl mx-auto px-6  ">
+
+        <!-- LEFT ARROW -->
+        <button
+            id="prevBtn"
+            type="button"
+            class="absolute left-0 top-1/2 -translate-y-1/2
+                   text-5xl z-10
+                   hover:scale-110 transition">
+            ‹
+        </button>
+
+
+        <!-- PRODUCT VIEWPORT -->
+        <div class="overflow-hidden   ">
+
+            <!-- SLIDER -->
+            <div
+                id="productSlider"
+                class="flex"
+            >
+
+
+                <!-- PRODUCT 1 -->
+                <div
+                    class=" product-card slider-product 
+                           px-2 text-center min-w-[50%] w-1/2  "
+                >
+
+                    <img
+      src="./img/WhatsApp Image 2026-07-19 at 08.42.32 (2).jpeg"
+                        class="w-full max-w-md rounded-t-full h-75 object-cover mx-auto animate-gentle"
+                    >
+<div class="h-80   relative ">
+
+          
+ <h2
+                        class="mt-8 text-sm tracking-[0.35em] uppercase p-4"
+                    >
+                        custard (pineaple, chocolate flavour )
+                    </h2>
+                 
+
+<div class="absolute top-34 inset-0  ">
+  <p class="text-3xl font-bold ">
+                            ₦3,000
+                    </p>
+</div>
+                  
+
+ <div class="absolute top-44 w-full">
+                               
+<button
+                        type="button"
+                        class="add-cart w-full max-w-md
+                               border-2 border-white
+                               py-4  
+                               text-xl
+                               bg-white text-black
+                               dark:bg-black dark:text-white"
+
+                        data-id=" custard (Banana flavour and vanila flavour )"
+                        data-name=" custard (Banana flavour and vanila flavour )"
+                        data-price="3000"
+                        data-image="img/WhatsApp Image 2026-07-19 at 08.42.32 (3).jpeg"
+                    >
+                        Add to Cart
+                    </button>
+ </div>
+
+
+
+                    
+
+                    <!-- ADD TO CART -->
+                  <div class="absolute bottom-0 w-full">
+                
+                    
+                    <button class=" border-2 border-white mt-5 py-4 font-extrabold rounded-lg w-full max-w-md  bg-black text-white  hover:bg-pink-700 active:bg-pink-800
+     transition-all duration-300">
+   <a href="./cart.html"> place order</a></button>
+                
+ 
+                   
+ 
+                  
+</div>
+
+                </div>
+</div>
+
+
+                <!-- PRODUCT 2 -->
+                <div
+                    class="product-card slider-product 
+                           px-2 text-center min-w-[50%] w-1/2 "
+                >
+
+                    <img
+                        src="./img/WhatsApp Image 2026-07-19 at 08.42.32 (3).jpeg"
+                        class="w-full max-w-md h-75 object-cover rounded-t-full mx-auto animate-gentle"
+                    >
+<div class="h-80 relative">
+                    <h2
+                        class="mt-8 text-shadow-xs tracking-[0.35em] uppercase"
+                    >
+                         custard (Banana, vanila flavour )
+                    </h2>
+<div class="absolute top-30 inset-0  ">
+  <p class="text-3xl font-bold  ">
+                            ₦3,000
+                    </p>
+</div>
+ <div class="absolute top-44 w-full">
+<button
+                        type="button"
+                        class="add-cart w-full max-w-md
+                               border-2 border-white
+                               py-4  
+                               text-xl
+                               bg-white text-black
+                               dark:bg-black dark:text-white"
+
+                        data-id=" custard (Banana flavour and vanila flavour )"
+                        data-name=" custard (Banana flavour and vanila flavour )"
+                        data-price="3000"
+                        data-image="img/WhatsApp Image 2026-07-19 at 08.42.32 (3).jpeg"
+                    >
+                        Add to Cart
+                    </button>
+                   
+ </div>                   
+
+
+
+                    <!-- ADD TO CART -->
+                <div class="absolute bottom-0 w-full">
+                    
+                    <button class=" max-w-md border border-white mt-5 py-3 font-extrabold rounded-lg w-full  bg-black text-white  hover:bg-pink-700 active:bg-pink-800
+     transition-all duration-300">
+   <a href="./cart.html"> place order</a></button>
+                </div>    
+                
+                  </div>
+                </div>
+
+
+
+                
+
+
+                <!-- PRODUCT 3 -->
+                <div
+                    class="product-card slider-product min-w-[50%] w-1/2
+                           px-2 text-center"
+                >
+
+                    <img
+                        src="./img/WhatsApp Image 2026-07-19 at 08.42.33 (1).jpeg"
+                        class="w-full max-w-md h-75 object-contain rounded-t-full mx-auto animate-gentle"
+                    >
+                    <div class="h-80   relative ">
+ <h2
+                        class="mt-8 text-sm tracking-[0.35em] uppercase"
+                    >
+                        custard (All flavours )
+                    </h2>
+
+                    <p class="text-3xl font-bold mt-4">
+                          ₦6,000
+                    </p>
+
+<button
+                        type="button"
+                        class="add-cart w-full max-w-md
+                               border-2 border-white
+                               py-4 mt-12 md:mt-12
+                               text-xl
+                               bg-white text-black
+                               dark:bg-black dark:text-white"
+
+                        data-id="custard (All flavours )"
+                        data-name="custard (All flavours )"
+                        data-price="6000"
+                        data-image="img/WhatsApp Image 2026-07-19 at 08.42.33 (1).jpeg"
+                    >
+                        Add to Cart
+                    </button>
+                  
+
+
+                 <div class="absolute bottom-0 w-full">
+
+<button class=" max-w-md border-2 border-white mt-5 py-3 font-extrabold rounded-lg w-full  bg-black text-white  hover:bg-pink-700 active:bg-pink-800
+     transition-all duration-300">
+   <a href="./cart.html"> place order</a></button>
+
+
+                 </div> 
+                   
+                    </div>
+
+                   
+
+                </div>
+
+
+                 <!-- PRODUCT 4 -->
+                <div
+                    class="product-card slider-product min-w-[50%] w-1/2
+                           px-2 text-center"
+                >
+
+                    <img
+                        src="./img/WhatsApp Image 2026-07-19 at 08.42.33 (1).jpeg"
+                        class="w-full max-w-md h-75  object-contain rounded-t-full mx-auto animate-gentle"
+                    >
+<div class="h-80   relative ">
+<h2
+                        class="mt-8 text-sm tracking-[0.35em] uppercase"
+                    >
+                       custard (All flavours )
+                    </h2>
+
+                    <p class="text-3xl font-bold mt-4">
+                          ₦6,000
+                    </p>
+
+
+
+
+                   <button
+                        type="button"
+                        class="add-cart w-full max-w-md
+                               border-2 border-white
+                               py-4 mt-12 md:mt-12
+                               text-xl
+                               bg-white text-black
+                               dark:bg-black dark:text-white"
+
+                        data-id="custard (All flavours )"
+                        data-name="custard (All flavours )"
+                        data-price="6000"
+                        data-image="img/WhatsApp Image 2026-07-19 at 08.42.33 (1).jpeg"
+                    >
+                        Add to Cart
+                    </button>
+         <div class="absolute bottom-0 w-full">
+<button class="max-w-md border-2 border-white mt-5 py-3 font-extrabold rounded-lg w-full  bg-black text-white  hover:bg-pink-700 active:bg-pink-800
+     transition-all duration-300">
+   <a href="./cart.html"> place order</a></button>
+         </div> 
+</div>
+                    
+
+                </div>
+
     
+            </div>
 
-    <button
-    class="add-cart w-full border border-white bg-black text-white py-3 rounded-lg  hover:bg-pink-700 active:bg-pink-800
-     transition-all duration-300 animate-gentle"
-
-    data-id="custard pineapleflavour and chocolateflavour"
-    data-name="custard pineapleflavour and chocolateflavour"
-    data-price="5000"
-    data-image="img/WhatsApp Image 2026-07-19 at 08.42.32 (2).jpeg">
-
-      Add to Cart
-
-    </button>
-    <button class=" border border-white mt-5 py-3 font-extrabold rounded-lg w-full  bg-black text-white  hover:bg-pink-700 active:bg-pink-800
-     transition-all duration-300 ">
-   <a href="./cart.html"> place order</a></button>
-
-</div>
-<div class=" product-card p-5">
-
-    <img
-    src="./img/WhatsApp Image 2026-07-19 at 08.42.32 (3).jpeg" class="rounded-t-full animate-gentle"
-    >
-
-    <h2 class="text-xl font-bold mt-4">
-        custard (Banana flavour and vanila flavour )
-    </h2>
-
-    <p class=" mb-4">
-        ₦3,000
-    </p>
-   
-
-    <button
-    class="add-cart w-full border border-white bg-black text-white py-3 rounded-lg  hover:bg-pink-700 active:bg-pink-800
-     transition-all duration-300 animate-gentle"
-
-    data-id="custard(Bananaflavour and vanilaflavour)"
-    data-name="custard(Bananaflavour and vanilaflavour)"
-    data-price="3000"
-    data-image="img/WhatsApp Image 2026-07-19 at 08.42.32 (3).jpeg">
-
-      Add to Cart
-
-    </button>
-    <button class=" border border-white mt-5 py-3 font-extrabold rounded-lg w-full  bg-black text-white  hover:bg-pink-700 active:bg-pink-800
-     transition-all duration-300">
-   <a href="./cart.html"> place order</a></button>
-
-</div>
-<div class="product-card p-5">
-
-    <img
-    src="./img/WhatsApp Image 2026-07-19 at 08.42.33 (1).jpeg" class="rounded-t-full animate-gentle"
-    >
-
-    <h2 class="text-xl font-bold mt-4">
-        custard (All flavours )
-    </h2>
-
-    <p class=" mb-4">
-        ₦6,000
-    </p>
-    
-
-    <button
-    class="add-cart w-full bg-black border border-white text-white py-3 rounded-lg  hover:bg-pink-700 active:bg-pink-800
-     transition-all duration-300 animate-gentle"
-
-    data-id="custard (All flavours)"
-    data-name="custard (All flavours )"
-    data-price="6000"
-    data-image="img/WhatsApp Image 2026-07-19 at 08.42.33 (1).jpeg">
-
-      Add to Cart
-
-    </button>
-    <button class=" border border-white mt-5 py-3 font-extrabold rounded-lg w-full  bg-black text-white  hover:bg-pink-700 active:bg-pink-800
-     transition-all duration-300">
-   <a href="./cart.html"> place order</a></button>
-
-</div>
-<div class=" product-card p-5">
-
-    <img
-    src="./img/WhatsApp Image 2026-07-19 at 08.42.33 (1).jpeg" class="rounded-t-full animate-gentle"
-    >
-
-    <h2 class="text-xl font-bold mt-4">
-        custard (All flavours )
-    </h2>
-
-    <p class=" mb-4">
-        ₦6,000
-    </p>
-  
-
-    <button
-    class="add-cart w-full border border-white bg-black text-white py-3 rounded-lg  hover:bg-pink-700 active:bg-pink-800
-     transition-all duration-300 animate-gentle"
-
-    data-id=" custard (All flavours )"
-    data-name="custard (All flavours )"
-    data-price="6000"
-    data-image="img/WhatsApp Image 2026-07-19 at 08.42.33 (1).jpeg">
-
-      Add to Cart
-
-    </button>
-    <button class=" border border-white mt-5 py-3 font-extrabold rounded-lg w-full  bg-black text-white  hover:bg-pink-700 active:bg-pink-800
-     transition-all duration-300">
-   <a href="./cart.html"> place order</a></button>
-
-</div>
+        </div>
 
 
-  </div>
+
+        <!-- RIGHT ARROW -->
+        <button
+            id="nextBtn"
+            type="button"
+            class="absolute right-0 top-1/2 -translate-y-1/2
+                   text-5xl z-10
+                   hover:scale-110 transition">
+            ›
+        </button>
+
+
+        <!-- PAGINATION HANDLES -->
+        <div
+            id="sliderIndicators"
+            class="flex justify-center items-center gap-7 mt-12 "
+        >
+
+        </div>
+
+    </div>
 
 </section>
-
-
-
 
 
 
@@ -429,7 +582,186 @@ Kindly hold on while we attend to you 💖." >
 
 
 
+<script>
+  const productSlider =
+    document.getElementById("productSlider");
 
+const prevBtn =
+    document.getElementById("prevBtn");
+
+const nextBtn =
+    document.getElementById("nextBtn");
+
+const sliderIndicators =
+    document.getElementById("sliderIndicators");
+
+
+const sliderProducts =
+    document.querySelectorAll(".slider-product");
+
+
+let currentPage = 0;
+
+
+// How many products are visible
+function productsPerPage() {
+
+    if (window.innerWidth < 768) {
+
+        return 2;
+
+    }
+
+    return 2;
+
+}
+
+
+// How many pages
+function totalPages() {
+
+    return Math.ceil(
+        sliderProducts.length / productsPerPage()
+    );
+
+}
+
+
+// Move slider
+function updateSlider() {
+
+    const perPage = productsPerPage();
+
+    const percentage =
+        currentPage * 100;
+
+    productSlider.style.transform =
+        `translateX(-${percentage}%)`;
+
+    updateIndicators();
+
+}
+
+
+// NEXT
+nextBtn.addEventListener("click", () => {
+
+    if (currentPage < totalPages() - 1) {
+
+        currentPage++;
+
+        updateSlider();
+
+    }
+
+});
+
+
+// PREVIOUS
+prevBtn.addEventListener("click", () => {
+
+    if (currentPage > 0) {
+
+        currentPage--;
+
+        updateSlider();
+
+    }
+
+});
+
+
+// CREATE THE TWO HANDLES
+function createIndicators() {
+
+    sliderIndicators.innerHTML = "";
+
+    const pages = totalPages();
+
+
+    for (let i = 0; i < pages; i++) {
+
+        const handle =
+            document.createElement("button");
+
+        handle.type = "button";
+
+        handle.className =
+            "w-16 h-4 rounded-full";
+
+
+        handle.addEventListener("click", () => {
+
+            currentPage = i;
+
+            updateSlider();
+
+        });
+
+
+        sliderIndicators.appendChild(handle);
+
+    }
+
+
+    updateIndicators();
+
+}
+
+
+// ACTIVE HANDLE
+function updateIndicators() {
+
+    const handles =
+        sliderIndicators.querySelectorAll("button");
+
+
+    handles.forEach((handle, index) => {
+
+        handle.classList.remove(
+            "bg-pink-300",
+            "bg-gray-300"
+        );
+
+
+        if (index === currentPage) {
+
+            handle.classList.add("bg-pink-300");
+
+        } else {
+
+            handle.classList.add("bg-gray-300");
+
+        }
+
+    });
+
+}
+
+
+// Resize
+window.addEventListener("resize", () => {
+
+    const pages = totalPages();
+
+    if (currentPage >= pages) {
+
+        currentPage = pages - 1;
+
+    }
+
+    createIndicators();
+
+    updateSlider();
+
+});
+
+
+// Start
+createIndicators();
+
+updateSlider();
+</script>
 
 
 <script src="https://cdn.socket.io/4.8.1/socket.io.min.js"></script>

@@ -13,9 +13,11 @@ if (!visitorId) {
 }
 
 
+// Connect to backend
 const socket = io("https://palm-luxe-empire.onrender.com");
 
 
+// Socket connected
 socket.on("connect", () => {
 
     console.log("Connected:", socket.id);
@@ -25,6 +27,7 @@ socket.on("connect", () => {
 });
 
 
+// Elements
 const chatBtn = document.getElementById("chat-btn");
 const chatBox = document.getElementById("chat-box");
 const closeBtn2 = document.getElementById("close-chat");
@@ -34,13 +37,8 @@ const sendBtn = document.getElementById("send-btn");
 const input = document.getElementById("message-input");
 const messages = document.getElementById("messages");
 
-
-// DEFAULT QUESTIONS
 const defaultQuestions =
     document.getElementById("defaultQuestions");
-
-const quickQuestions =
-    document.querySelectorAll(".quick-question");
 
 
 // Open Chat
@@ -63,33 +61,78 @@ closeBtn2.addEventListener("click", () => {
 });
 
 
-// Load previous messages
-socket.on("load_messages", (history) => {
+// ------------------------------------
+// QUICK QUESTIONS
+// ------------------------------------
 
-    messages.innerHTML = "";
+const quickQuestions =
+    document.querySelectorAll(".quick-question");
 
-    history.forEach((msg) => {
 
-        addMessage(msg.sender, msg.message);
+quickQuestions.forEach((button) => {
+
+    button.addEventListener("click", () => {
+
+        const question =
+            button.dataset.message;
+
+        // Remove default questions
+        defaultQuestions.remove();
+
+        // Send the question
+        socket.emit("send_message", {
+
+            visitorId,
+
+            sender: "Customer",
+
+            message: question
+
+        });
 
     });
-
-
-    // Show default questions for a new conversation
-    if (history.length === 0) {
-
-        messages.appendChild(defaultQuestions);
-
-    }
 
 });
 
 
-// Send button
+// ------------------------------------
+// LOAD PREVIOUS MESSAGES
+// ------------------------------------
+
+socket.on("load_messages", (history) => {
+
+    // If there are previous messages,
+    // remove the default questions
+    if (history.length > 0) {
+
+        defaultQuestions.remove();
+
+    }
+
+    // Add previous messages
+    history.forEach((msg) => {
+
+        addMessage(
+            msg.sender,
+            msg.message
+        );
+
+    });
+
+});
+
+
+// ------------------------------------
+// SEND BUTTON
+// ------------------------------------
+
 sendBtn.addEventListener("click", sendMessage);
 
 
-// Press Enter
+// ------------------------------------
+// PRESS ENTER
+// ------------------------------------
+
 input.addEventListener("keypress", (e) => {
 
     if (e.key === "Enter") {
@@ -101,15 +144,30 @@ input.addEventListener("keypress", (e) => {
 });
 
 
+// ------------------------------------
+// SEND MESSAGE FUNCTION
+// ------------------------------------
+
 function sendMessage() {
 
     const text = input.value.trim();
 
     if (!text) return;
 
-    console.log(visitorId);
+
+    console.log("Visitor:", visitorId);
 
     console.log("Sending:", text);
+
+
+    // Remove default questions
+    if (document.getElementById("defaultQuestions")) {
+
+        document
+            .getElementById("defaultQuestions")
+            .remove();
+
+    }
 
 
     socket.emit("send_message", {
@@ -123,64 +181,35 @@ function sendMessage() {
     });
 
 
-    // Remove default questions when customer types a message
-    if (defaultQuestions.parentElement === messages) {
-
-        defaultQuestions.remove();
-
-    }
-
-
     input.value = "";
 
 }
 
 
-// QUICK QUESTIONS
-quickQuestions.forEach((button) => {
+// ------------------------------------
+// RECEIVE NEW MESSAGE
+// ------------------------------------
 
-    button.addEventListener("click", () => {
-
-        const text = button.dataset.message;
-
-        if (!text) return;
-
-
-        console.log("Quick question:", text);
-
-
-        socket.emit("send_message", {
-
-            visitorId,
-
-            sender: "Customer",
-
-            message: text
-
-        });
-
-
-        // Remove the questions after selecting one
-        defaultQuestions.remove();
-
-    });
-
-});
-
-
-// Receive new message
 socket.on("receive_message", (msg) => {
 
     console.log("Received:", msg);
 
-    addMessage(msg.sender, msg.message);
+    addMessage(
+        msg.sender,
+        msg.message
+    );
 
 });
 
 
+// ------------------------------------
+// ADD MESSAGE TO CHAT
+// ------------------------------------
+
 function addMessage(sender, text) {
 
-    const div = document.createElement("div");
+    const div =
+        document.createElement("div");
 
 
     if (sender === "Customer") {
@@ -204,6 +233,8 @@ function addMessage(sender, text) {
 
     messages.appendChild(div);
 
-    messages.scrollTop = messages.scrollHeight;
+
+    messages.scrollTop =
+        messages.scrollHeight;
 
 }

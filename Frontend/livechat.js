@@ -2,9 +2,16 @@
 let visitorId = localStorage.getItem("visitorId");
 
 if (!visitorId) {
-    visitorId = "visitor_" + Date.now() + "_" + Math.random().toString(36).slice(2, 8);
+
+    visitorId =
+        "visitor_" +
+        Date.now() +
+        "_" +
+        Math.random().toString(36).slice(2, 8);
+
     localStorage.setItem("visitorId", visitorId);
 }
+
 
 const socket = io("https://palm-luxe-empire.onrender.com");
 
@@ -17,6 +24,7 @@ socket.on("connect", () => {
 
 });
 
+
 const chatBtn = document.getElementById("chat-btn");
 const chatBox = document.getElementById("chat-box");
 const closeBtn2 = document.getElementById("close-chat");
@@ -26,21 +34,34 @@ const sendBtn = document.getElementById("send-btn");
 const input = document.getElementById("message-input");
 const messages = document.getElementById("messages");
 
+
+// DEFAULT QUESTIONS
+const defaultQuestions =
+    document.getElementById("defaultQuestions");
+
+const quickQuestions =
+    document.querySelectorAll(".quick-question");
+
+
 // Open Chat
 chatBtn.addEventListener("click", () => {
 
     chatBox.classList.remove("hidden");
+
     navbar.classList.add("hidden");
 
 });
+
 
 // Close Chat
 closeBtn2.addEventListener("click", () => {
 
     chatBox.classList.add("hidden");
-     navbar.classList.remove("hidden");
+
+    navbar.classList.remove("hidden");
 
 });
+
 
 // Load previous messages
 socket.on("load_messages", (history) => {
@@ -53,10 +74,20 @@ socket.on("load_messages", (history) => {
 
     });
 
+
+    // Show default questions for a new conversation
+    if (history.length === 0) {
+
+        messages.appendChild(defaultQuestions);
+
+    }
+
 });
+
 
 // Send button
 sendBtn.addEventListener("click", sendMessage);
+
 
 // Press Enter
 input.addEventListener("keypress", (e) => {
@@ -69,28 +100,73 @@ input.addEventListener("keypress", (e) => {
 
 });
 
+
 function sendMessage() {
 
     const text = input.value.trim();
 
     if (!text) return;
+
     console.log(visitorId);
 
     console.log("Sending:", text);
 
+
     socket.emit("send_message", {
 
-    visitorId,
+        visitorId,
 
-    sender: "Customer",
+        sender: "Customer",
 
-    message: text
+        message: text
 
-});
+    });
+
+
+    // Remove default questions when customer types a message
+    if (defaultQuestions.parentElement === messages) {
+
+        defaultQuestions.remove();
+
+    }
+
 
     input.value = "";
 
 }
+
+
+// QUICK QUESTIONS
+quickQuestions.forEach((button) => {
+
+    button.addEventListener("click", () => {
+
+        const text = button.dataset.message;
+
+        if (!text) return;
+
+
+        console.log("Quick question:", text);
+
+
+        socket.emit("send_message", {
+
+            visitorId,
+
+            sender: "Customer",
+
+            message: text
+
+        });
+
+
+        // Remove the questions after selecting one
+        defaultQuestions.remove();
+
+    });
+
+});
+
 
 // Receive new message
 socket.on("receive_message", (msg) => {
@@ -101,9 +177,11 @@ socket.on("receive_message", (msg) => {
 
 });
 
+
 function addMessage(sender, text) {
 
     const div = document.createElement("div");
+
 
     if (sender === "Customer") {
 
@@ -117,10 +195,12 @@ function addMessage(sender, text) {
 
     }
 
+
     div.innerHTML = `
         <strong>${sender}</strong><br>
         ${text}
     `;
+
 
     messages.appendChild(div);
 

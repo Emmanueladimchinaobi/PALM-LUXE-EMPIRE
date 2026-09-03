@@ -41,6 +41,9 @@ const defaultQuestions =
     document.getElementById("defaultQuestions");
 
 
+
+ 
+
 // Open Chat
 chatBtn.addEventListener("click", () => {
 
